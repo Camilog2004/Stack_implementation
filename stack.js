@@ -1,18 +1,17 @@
 //Clase para cada nodo de la pila
-var StackNode = /** @class */ (function () {
-    function StackNode(value) {
+class StackNode {
+    constructor(value) {
         this.value = value;
         this.prev = null;
     }
-    return StackNode;
-}());
-var Stack = /** @class */ (function () {
-    function Stack() {
+}
+class Stack {
+    constructor() {
         this.head = null;
         this.lenght = 0;
     }
     //Metodo para agregar un elemento a la pila
-    Stack.prototype.push = function (node) {
+    push(node) {
         //En caso de que la pila este vacia
         if (!this.head) {
             this.head = node;
@@ -23,29 +22,28 @@ var Stack = /** @class */ (function () {
             this.head = node;
             this.lenght += 1;
         }
-    };
-    Stack.prototype.pop = function () {
+    }
+    pop() {
         //En caso de que la pila este vacia
         if (!this.head) {
             return null;
         }
         else {
-            var temp = this.head;
-            var value_temp = temp.value;
+            const temp = this.head;
+            const value_temp = temp.value;
             this.head = temp.prev;
             temp.prev = null;
             this.lenght -= 1;
             return value_temp;
         }
-    };
-    return Stack;
-}());
-var pila = new Stack();
+    }
+}
+const pila = new Stack();
 console.log(pila);
-var valor1 = new StackNode(25);
+const valor1 = new StackNode(25);
 pila.push(valor1);
 console.log(pila);
-var valor2 = new StackNode(30);
+const valor2 = new StackNode(30);
 pila.push(valor2);
 console.log(pila);
 pila.pop();
